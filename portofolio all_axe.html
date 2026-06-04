@@ -38,7 +38,6 @@
 
     .container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
 
-    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -79,7 +78,6 @@
     nav a { font-size: 0.88rem; color: var(--teks); font-weight: 600; }
     nav a:hover { color: var(--biru-royal); }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 3.5rem 1.25rem 3.5rem;
@@ -128,7 +126,6 @@
       margin: 0 auto;
     }
 
-    /* Sections */
     section { padding: 3.5rem 0; }
     section.alt { background: var(--putih); }
     .section-head { text-align: center; margin-bottom: 2rem; }
@@ -150,7 +147,6 @@
     .intro p:last-child { margin-bottom: 0; }
     .intro strong { color: var(--biru-navy); }
 
-    /* Galeri */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -165,12 +161,56 @@
       transition: transform 0.2s;
     }
     .memory-card:hover { transform: translateY(-5px); }
-    .memory-card img {
+
+    /* 1 foto (article biasa) */
+    .memory-card > img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       background: var(--biru-muda);
     }
+
+    /* Slider otomatis — foto berganti sendiri */
+    .slider-auto {
+      position: relative;
+      height: 200px;
+      background: var(--biru-navy);
+      overflow: hidden;
+    }
+    .slider-auto img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    .slider-auto img.active {
+      opacity: 1;
+    }
+    .slider-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 2;
+    }
+    .slider-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transition: background 0.3s;
+    }
+    .slider-dots span.active {
+      background: var(--emas);
+      transform: scale(1.15);
+    }
+
     .memory-card .body { padding: 1rem 1.1rem; }
     .memory-card h3 {
       font-size: 1.05rem;
@@ -189,7 +229,6 @@
       font-weight: 700;
     }
 
-    /* Timeline */
     .timeline { position: relative; padding-left: 1.5rem; }
     .timeline::before {
       content: "";
@@ -231,7 +270,6 @@
     }
     .timeline-item p { color: var(--abu); font-size: 0.95rem; }
 
-    /* Pesan */
     .list-memories { list-style: none; display: grid; gap: 0.75rem; }
     .list-memories li {
       background: var(--putih);
@@ -265,7 +303,6 @@
       opacity: 0.92;
     }
 
-    /* Kontak */
     .contact-box {
       text-align: center;
       background: var(--putih);
@@ -299,7 +336,6 @@
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.85rem;
-      color: var(--abu);
       background: var(--biru-navy);
       color: rgba(255,255,255,0.85);
     }
@@ -326,11 +362,7 @@
 
   <section class="hero">
     <div class="hero-logo-wrap">
-      <img
-        src="logo2.png"
-        alt="Logo All-Axe Graduate 05"
-        class="hero-logo"
-      />
+      <img src="logo2.png" alt="Logo All-Axe Graduate 05" class="hero-logo" />
     </div>
     <span class="badge">ALL-AXE — GRADUATE 05</span>
     <p class="tahun">05</p>
@@ -371,7 +403,12 @@
       <div class="gallery">
 
         <article class="memory-card">
-          <img src="images/foto-1.jpg" alt="Kenangan 1" />
+          <div class="slider-auto" data-slider-auto data-interval="3000">
+            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
+            <img src="bukber.jpeg" alt="Study tour 2" />
+            <img src="graduate.jpeg" alt="Study tour 3" />
+            <div class="slider-dots"></div>
+          </div>
           <div class="body">
             <h3>Hari Pertama / Perkenalan</h3>
             <p>Momen awal kenalan dan semangat tahun ajaran baru.</p>
@@ -379,8 +416,14 @@
           </div>
         </article>
 
+        <!-- Study Tour: foto berganti sendiri setiap 3 detik -->
         <article class="memory-card">
-          <img src="images/foto-2.jpg" alt="Kenangan 2" />
+          <div class="slider-auto" data-slider-auto data-interval="3000">
+            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
+            <img src="bukber.jpeg" alt="Study tour 2" />
+            <img src="graduate.jpeg" alt="Study tour 3" />
+            <div class="slider-dots"></div>
+          </div>
           <div class="body">
             <h3>Study Tour / Wisata</h3>
             <p>Perjalanan bareng teman dan guru — full tawa dan foto.</p>
@@ -389,7 +432,12 @@
         </article>
 
         <article class="memory-card">
-          <img src="images/foto-3.jpg" alt="Kenangan 3" />
+          <div class="slider-auto" data-slider-auto data-interval="3000">
+            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
+            <img src="bukber.jpeg" alt="Study tour 2" />
+            <img src="graduate.jpeg" alt="Study tour 3" />
+            <div class="slider-dots"></div>
+          </div>
           <div class="body">
             <h3>Pentas / Lomba</h3>
             <p>Acara sekolah, porseni, atau tampil di panggung.</p>
@@ -398,7 +446,12 @@
         </article>
 
         <article class="memory-card">
-          <img src="images/foto-4.jpg" alt="Kenangan 4" />
+          <div class="slider-auto" data-slider-auto data-interval="3000">
+            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
+            <img src="bukber.jpeg" alt="Study tour 2" />
+            <img src="graduate.jpeg" alt="Study tour 3" />
+            <div class="slider-dots"></div>
+          </div>
           <div class="body">
             <h3>Kebersamaan di Kelas</h3>
             <p>Foto random, jajan, atau belajar bareng sebelum ujian.</p>
@@ -407,7 +460,12 @@
         </article>
 
         <article class="memory-card">
-          <img src="images/foto-5.jpg" alt="Kenangan 5" />
+          <div class="slider-auto" data-slider-auto data-interval="3000">
+            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
+            <img src="bukber.jpeg" alt="Study tour 2" />
+            <img src="graduate.jpeg" alt="Study tour 3" />
+            <div class="slider-dots"></div>
+          </div>
           <div class="body">
             <h3>Hari Perpisahan</h3>
             <p>Wisuda, baju angkatan, dan air mata bahagia.</p>
@@ -416,7 +474,12 @@
         </article>
 
         <article class="memory-card">
-          <img src="images/foto-6.jpg" alt="Kenangan 6" />
+          <div class="slider-auto" data-slider-auto data-interval="3000">
+            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
+            <img src="bukber.jpeg" alt="Study tour 2" />
+            <img src="graduate.jpeg" alt="Study tour 3" />
+            <div class="slider-dots"></div>
+          </div>
           <div class="body">
             <h3>Kegiatan Keagamaan</h3>
             <p>Pengajian, pesantren kilat, atau momen berkah bersama.</p>
@@ -474,7 +537,6 @@
         <li><span class="icon">📸</span> Foto random di koridor &amp; kelas</li>
         <li><span class="icon">💬</span> Grup chat angkatan yang masih aktif</li>
       </ul>
-
       <div class="quotes">
         <blockquote class="quote-box">
           “Terima kasih sudah jadi bagian dari masa sekolah terbaikku.”
@@ -509,8 +571,41 @@
       </div>
     </div>
   </section>
+
   <footer>
     © 2026 <strong>Angkatan Graduate 05</strong> — AL-HIKMAH PEMENANG
   </footer>
+
+  <script>
+    document.querySelectorAll("[data-slider-auto]").forEach(function (slider) {
+      var imgs = slider.querySelectorAll("img");
+      var dotsWrap = slider.querySelector(".slider-dots");
+      var index = 0;
+      var interval = parseInt(slider.getAttribute("data-interval"), 10) || 3000;
+
+      if (imgs.length <= 1) return;
+
+      imgs.forEach(function (_, i) {
+        var dot = document.createElement("span");
+        if (i === 0) dot.classList.add("active");
+        dotsWrap.appendChild(dot);
+      });
+      var dots = dotsWrap.querySelectorAll("span");
+
+      function show(i) {
+        imgs.forEach(function (img, n) {
+          img.classList.toggle("active", n === i);
+        });
+        dots.forEach(function (dot, n) {
+          dot.classList.toggle("active", n === i);
+        });
+        index = i;
+      }
+
+      setInterval(function () {
+        show((index + 1) % imgs.length);
+      }, interval);
+    });
+  </script>
 </body>
 </html>
