@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kenangan Angkatan All-Axe Graduate 05" />
+  <title>Kenangan Angkatan All Axe Graduate 05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --biru-royal: #0047ff;
+      --biru-royal-gelap: #0036c4;
+      --biru-navy: #000040;
+      --biru-muda: #e8f0ff;
+      --emas: #c9a227;
+      --putih: #ffffff;
+      --krem: #f5f8ff;
+      --teks: #0a1628;
+      --abu: #5a6b8a;
+      --bayang: 0 8px 28px rgba(0, 71, 255, 0.18);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Nunito", system-ui, sans-serif;
+      background: var(--krem);
+      color: var(--teks);
+      line-height: 1.7;
+    }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; }
+    img { max-width: 100%; display: block; }
+    a { color: var(--biru-royal); text-decoration: none; font-weight: 600; }
+    a:hover { color: var(--biru-royal-gelap); }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 248, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--biru-muda);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      max-width: 960px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--biru-navy);
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--putih);
+      padding: 4px;
+      box-shadow: var(--bayang);
+    }
+    .logo-text { font-weight: 700; font-size: 1rem; }
+    .logo-text strong { color: var(--biru-royal); }
+    nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+    nav a { font-size: 0.88rem; color: var(--teks); font-weight: 600; }
+    nav a:hover { color: var(--biru-royal); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1.25rem 3.5rem;
+      background: linear-gradient(180deg, var(--biru-muda) 0%, var(--krem) 50%, var(--putih) 100%);
+    }
+    .hero-logo-wrap {
+      margin: 0 auto 1.25rem;
+      width: min(220px, 60vw);
+    }
+    .hero-logo {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 28px rgba(0, 71, 255, 0.35));
+    }
+    .hero .badge {
+      display: inline-block;
+      background: var(--biru-navy);
+      color: var(--putih);
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+      border: 2px solid var(--emas);
+    }
+    .hero .tahun {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--biru-royal);
+      text-shadow: 3px 3px 0 var(--emas);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      font-family: "Playfair Display", serif;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 5vw, 2.6rem);
+      color: var(--biru-navy);
+      margin-bottom: 0.5rem;
+    }
+    .hero .sub {
+      font-size: 1.05rem;
+      color: var(--abu);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* Sections */
+    section { padding: 3.5rem 0; }
+    section.alt { background: var(--putih); }
+    .section-head { text-align: center; margin-bottom: 2rem; }
+    .section-head h2 {
+      font-size: 1.75rem;
+      color: var(--biru-navy);
+      margin-bottom: 0.35rem;
+    }
+    .section-head p { color: var(--abu); font-size: 0.95rem; }
+
+    .intro {
+      background: var(--putih);
+      padding: 1.75rem;
+      border-radius: var(--radius);
+      box-shadow: var(--bayang);
+      border-left: 5px solid var(--biru-royal);
+    }
+    .intro p { margin-bottom: 0.75rem; color: var(--abu); }
+    .intro p:last-child { margin-bottom: 0; }
+    .intro strong { color: var(--biru-navy); }
+
+    /* Galeri */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .memory-card {
+      background: var(--putih);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--bayang);
+      border: 1px solid var(--biru-muda);
+      transition: transform 0.2s;
+    }
+    .memory-card:hover { transform: translateY(-5px); }
+    .memory-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--biru-muda);
+    }
+    .memory-card .body { padding: 1rem 1.1rem; }
+    .memory-card h3 {
+      font-size: 1.05rem;
+      color: var(--biru-navy);
+      margin-bottom: 0.35rem;
+    }
+    .memory-card p { font-size: 0.9rem; color: var(--abu); }
+    .memory-card .tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      background: var(--biru-muda);
+      color: var(--biru-navy);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(var(--biru-royal), var(--emas));
+      border-radius: 4px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.75rem;
+      padding-left: 1.25rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.7rem;
+      top: 0.45rem;
+      width: 12px;
+      height: 12px;
+      background: var(--biru-royal);
+      border: 3px solid var(--putih);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--biru-royal);
+    }
+    .timeline-item .year {
+      font-weight: 700;
+      color: var(--biru-royal);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    .timeline-item h3 {
+      font-size: 1.1rem;
+      color: var(--biru-navy);
+      margin-bottom: 0.35rem;
+    }
+    .timeline-item p { color: var(--abu); font-size: 0.95rem; }
+
+    /* Pesan */
+    .list-memories { list-style: none; display: grid; gap: 0.75rem; }
+    .list-memories li {
+      background: var(--putih);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 14px rgba(0, 71, 255, 0.08);
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      border: 1px solid var(--biru-muda);
+    }
+    .list-memories .icon { font-size: 1.25rem; flex-shrink: 0; }
+
+    .quotes { display: grid; gap: 1rem; margin-top: 2rem; }
+    .quote-box {
+      background: linear-gradient(135deg, var(--biru-navy) 0%, var(--biru-royal) 100%);
+      color: var(--putih);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      font-style: italic;
+      border-left: 4px solid var(--emas);
+    }
+    .quote-box.alt {
+      background: linear-gradient(135deg, var(--biru-royal) 0%, #4d8fff 100%);
+    }
+    .quote-box cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-size: 0.9rem;
+      opacity: 0.92;
+    }
+
+    /* Kontak */
+    .contact-box {
+      text-align: center;
+      background: var(--putih);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--bayang);
+      border: 2px solid var(--biru-muda);
+    }
+    .contact-box p { color: var(--abu); margin-bottom: 1rem; }
+    .contact-logo {
+      width: 100px;
+      margin: 0 auto 1rem;
+      opacity: 0.95;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--biru-royal);
+      color: var(--putih);
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(0, 71, 255, 0.35);
+    }
+    .btn:hover {
+      background: var(--biru-royal-gelap);
+      color: var(--putih);
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: var(--abu);
+      background: var(--biru-navy);
+      color: rgba(255,255,255,0.85);
+    }
+    footer strong { color: var(--emas); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="#" class="logo-wrap">
+        <img src="logo2.png" alt="Logo All-Axe Graduate 05" class="logo-img" />
+        <span class="logo-text">Angkatan <strong>05</strong></span>
+      </a>
+      <nav>
+        <a href="#tentang">Tentang</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#pesan">Pesan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-logo-wrap">
+      <img
+        src="logo2.png"
+        alt="Logo All-Axe Graduate 05"
+        class="hero-logo"
+      />
+    </div>
+    <span class="badge">ALL-AXE — GRADUATE 05</span>
+    <p class="tahun">05</p>
+    <h1>Kenangan Angkatan Kami</h1>
+    <p class="sub">
+      Satu halaman untuk menyimpan foto, cerita, dan tawa selama masa sekolah.
+      Biru langit kenangan, emasnya persahabatan — selamanya di hati.
+    </p>
+  </section>
+
+  <section id="tentang">
+    <div class="container">
+      <div class="section-head">
+        <h2>Tentang Angkatan</h2>
+        <p>Kenangan yang ingin kita simpan bersama</p>
+      </div>
+      <div class="intro">
+        <p>
+          Kami angkatan <strong>Graduate 05</strong> di <strong>PONDOK MODERN AL-HIKMAH PEMENANG</strong>.
+          Dari hari pertama masuk sekolah hingga hari perpisahan, banyak momen indah
+          yang layak diabadikan di halaman ini.
+        </p>
+        <p>
+          Website ini dibuat sederhana agar semua teman bisa melihat kembali:
+          study tour, pentas, lomba, kegiatan keagamaan, ujian, dan foto-foto random di kelas.
+        </p>
+        <p><em>“Sekolah akan berakhir, tapi kenangannya tetap hidup.”</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Galeri Kenangan</h2>
+        <p>Simpan foto di folder <strong>images/</strong> — sesuaikan nama file di bawah</p>
+      </div>
+      <div class="gallery">
+
+        <article class="memory-card">
+          <img src="images/foto-1.jpg" alt="Kenangan 1" />
+          <div class="body">
+            <h3>Hari Pertama / Perkenalan</h3>
+            <p>Momen awal kenalan dan semangat tahun ajaran baru.</p>
+            <span class="tag">Awal</span>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <img src="images/foto-2.jpg" alt="Kenangan 2" />
+          <div class="body">
+            <h3>Study Tour / Wisata</h3>
+            <p>Perjalanan bareng teman dan guru — full tawa dan foto.</p>
+            <span class="tag">Wisata</span>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <img src="images/foto-3.jpg" alt="Kenangan 3" />
+          <div class="body">
+            <h3>Pentas / Lomba</h3>
+            <p>Acara sekolah, porseni, atau tampil di panggung.</p>
+            <span class="tag">Acara</span>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <img src="images/foto-4.jpg" alt="Kenangan 4" />
+          <div class="body">
+            <h3>Kebersamaan di Kelas</h3>
+            <p>Foto random, jajan, atau belajar bareng sebelum ujian.</p>
+            <span class="tag">Kelas</span>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <img src="images/foto-5.jpg" alt="Kenangan 5" />
+          <div class="body">
+            <h3>Hari Perpisahan</h3>
+            <p>Wisuda, baju angkatan, dan air mata bahagia.</p>
+            <span class="tag">Wisuda</span>
+          </div>
+        </article>
+
+        <article class="memory-card">
+          <img src="images/foto-6.jpg" alt="Kenangan 6" />
+          <div class="body">
+            <h3>Kegiatan Keagamaan</h3>
+            <p>Pengajian, pesantren kilat, atau momen berkah bersama.</p>
+            <span class="tag">Keagamaan</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="container">
+      <div class="section-head">
+        <h2>Timeline Kenangan</h2>
+        <p>Perjalanan dari tahun ke tahun — sesuaikan tahun Anda</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">Kelas 10 — [Tahun]</div>
+          <h3>Awal perjalanan</h3>
+          <p>Kenalan angkatan, organisasi kelas, dan lingkungan baru.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Kelas 11 — [Tahun]</div>
+          <h3>Semakin dekat</h3>
+          <p>Projek kelompok, ekstra, dan mulai banyak foto bareng.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Kelas 12 — [Tahun]</div>
+          <h3>Menuju wisuda</h3>
+          <p>Ujian, bimbingan, persiapan lulus, dan kenangan terakhir di sekolah.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="year">Graduate 05</div>
+          <h3>Perpisahan &amp; baru</h3>
+          <p>Hari yang ditunggu — lulus bersama, dengan logo angkatan yang sama.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pesan" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Pesan &amp; Kenangan Kecil</h2>
+        <p>Hal-hal yang sering kita ingat</p>
+      </div>
+      <ul class="list-memories">
+        <li><span class="icon">📚</span> Belajar bareng sebelum ujian</li>
+        <li><span class="icon">🍜</span> Jajan di kantin favorit setiap istirahat</li>
+        <li><span class="icon">⚽</span> Olahraga dan lomba antar kelas</li>
+        <li><span class="icon">🎤</span> Pentas seni dan tampil di panggung</li>
+        <li><span class="icon">🕌</span> Kegiatan keagamaan dan solidaritas</li>
+        <li><span class="icon">📸</span> Foto random di koridor &amp; kelas</li>
+        <li><span class="icon">💬</span> Grup chat angkatan yang masih aktif</li>
+      </ul>
+
+      <div class="quotes">
+        <blockquote class="quote-box">
+          “Terima kasih sudah jadi bagian dari masa sekolah terbaikku.”
+          <cite>— Teman seangkatan</cite>
+        </blockquote>
+        <blockquote class="quote-box alt">
+          “Jumpa lagi di reunian — angkatan 05 selalu di hati.”
+          <cite>— Teman seangkatan</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="container">
+      <div class="section-head">
+        <h2>Hubungi Angkatan</h2>
+        <p>Grup WA atau media sosial angkatan</p>
+      </div>
+      <div class="contact-box">
+        <img src="logo2.png" alt="" class="contact-logo" />
+        <p>
+          Punya foto atau cerita baru? Kirim ke pengurus angkatan atau grup WhatsApp.
+        </p>
+        <a class="btn" href="https://chat.whatsapp.com/[LINK-GRUP-WA]" target="_blank" rel="noopener">
+          Gabung Grup WhatsApp
+        </a>
+        <p style="margin-top: 1rem;">
+          Instagram:
+          <a href="https://instagram.com/[akun_angkatan]" target="_blank">@[akun_angkatan]</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    © 2026 <strong>Angkatan Graduate 05</strong> — AL-HIKMAH · Dibuat dengan kenangan
+  </footer>
+</body>
+</html>
