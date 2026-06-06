@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Kenangan Angkatan All-Axe Graduate 05" />
-  <title>Kenangan Angkatan All Axe Graduate 05</title>
+  <title>All-Axe Graduate 05</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -159,10 +159,10 @@
       box-shadow: var(--bayang);
       border: 1px solid var(--biru-muda);
       transition: transform 0.2s;
+      cursor: pointer;
     }
     .memory-card:hover { transform: translateY(-5px); }
 
-    /* 1 foto (article biasa) */
     .memory-card > img {
       width: 100%;
       height: 200px;
@@ -170,12 +170,12 @@
       background: var(--biru-muda);
     }
 
-    /* Slider otomatis — foto berganti sendiri */
     .slider-auto {
       position: relative;
       height: 200px;
       background: var(--biru-navy);
       overflow: hidden;
+      pointer-events: none;
     }
     .slider-auto img {
       position: absolute;
@@ -186,9 +186,7 @@
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
     }
-    .slider-auto img.active {
-      opacity: 1;
-    }
+    .slider-auto img.active { opacity: 1; }
     .slider-dots {
       position: absolute;
       bottom: 10px;
@@ -227,6 +225,113 @@
       padding: 0.25rem 0.65rem;
       border-radius: 6px;
       font-weight: 700;
+    }
+    .click-hint {
+      font-size: 0.78rem;
+      color: var(--biru-royal);
+      margin-top: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* Modal popup foto */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 64, 0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--putih);
+      border-radius: var(--radius);
+      max-width: 760px;
+      width: 100%;
+      max-height: 92vh;
+      overflow: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: var(--biru-navy);
+      color: var(--putih);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .modal-header h3 { font-size: 1.1rem; color: var(--putih); }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--putih);
+      font-size: 1.75rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .modal-close:hover { color: var(--emas); }
+    .modal-slider {
+      position: relative;
+      height: min(420px, 55vh);
+      background: #000;
+    }
+    .modal-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .modal-slider img.active { opacity: 1; }
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.92);
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--biru-navy);
+      z-index: 2;
+    }
+    .modal-nav.prev { left: 10px; }
+    .modal-nav.next { right: 10px; }
+    .modal-thumbs {
+      display: flex;
+      gap: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      background: var(--krem);
+    }
+    .modal-thumbs img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      flex-shrink: 0;
+    }
+    .modal-thumbs img.active-thumb { border-color: var(--biru-royal); }
+    .modal-desc {
+      padding: 1rem 1.25rem 1.25rem;
+      color: var(--abu);
+      font-size: 0.95rem;
+    }
+    .modal-count {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--abu);
+      padding-bottom: 0.75rem;
     }
 
     .timeline { position: relative; padding-left: 1.5rem; }
@@ -398,9 +503,10 @@
     <div class="container">
       <div class="section-head">
         <h2>Galeri Kenangan</h2>
-        <p>Simpan foto di folder <strong>images/</strong> — sesuaikan nama file di bawah</p>
+        <p>Klik salah satu kenangan untuk melihat semua foto</p>
       </div>
       <div class="gallery">
+
         <article class="memory-card">
           <div class="slider-auto" data-slider-auto data-interval="3000">
             <img src="jurit1.jpeg" alt="Hari Pertama 1" class="active" />
@@ -413,29 +519,29 @@
             <h3>Hari Pertama / Perkenalan</h3>
             <p>Momen awal kenalan dan semangat tahun ajaran baru.</p>
             <span class="tag">Awal</span>
+            <p class="click-hint">Klik untuk lihat semua foto →</p>
           </div>
         </article>
 
-        <!-- Study Tour: foto berganti sendiri setiap 3 detik -->
         <article class="memory-card">
           <div class="slider-auto" data-slider-auto data-interval="3000">
             <img src="tourism.jpeg" alt="Study tour 1" class="active" />
             <img src="tourism1.jpeg" alt="Study tour 2" />
-            <img src="tourism2.jpeg" alt="Study tour 3" />
-            <img src="tourism3.jpeg" alt="Study tour 4" />
-            <img src="tourism4.jpeg" alt="Study tour 5" />
-            <img src="tourism5.jpeg" alt="Study tour 6" />
-            <img src="tourism6.jpeg" alt="Study tour 7" />
-            <img src="tourism7.jpeg" alt="Study tour 8" />
-            <img src="tourism8.jpeg" alt="Study tour 9" />
-            <img src="tourism9.jpeg" alt="Study tour 10" />
-            <img src="tourism10.jpeg" alt="Study tour 11" />
+            <img src="tourism3.jpeg" alt="Study tour 3" />
+            <img src="tourism4.jpeg" alt="Study tour 4" />
+            <img src="tourism5.jpeg" alt="Study tour 5" />
+            <img src="tourism6.jpeg" alt="Study tour 6" />
+            <img src="tourism7.jpeg" alt="Study tour 7" />
+            <img src="tourism8.jpeg" alt="Study tour 8" />
+            <img src="tourism9.jpeg" alt="Study tour 9" />
+            <img src="tourism10.jpeg" alt="Study tour 10" />
             <div class="slider-dots"></div>
           </div>
           <div class="body">
             <h3>Study Tour / Wisata</h3>
             <p>Perjalanan bareng teman dan guru — full tawa dan foto.</p>
             <span class="tag">Wisata</span>
+            <p class="click-hint">Klik untuk lihat semua foto →</p>
           </div>
         </article>
 
@@ -453,20 +559,22 @@
             <h3>Bukber Angkatan 05</h3>
             <p>Buka Bersama angkatan 05 Pondok Modern Al-Hikmah.</p>
             <span class="tag">Bukber</span>
+            <p class="click-hint">Klik untuk lihat semua foto →</p>
           </div>
         </article>
 
         <article class="memory-card">
           <div class="slider-auto" data-slider-auto data-interval="3000">
-            <img src="tourims.jpeg" alt="Study tour 1" class="active" />
-            <img src="bukber.jpeg" alt="Study tour 2" />
-            <img src="graduate.jpeg" alt="Study tour 3" />
+            <img src="tourims.jpeg" alt="Kelas 1" class="active" />
+            <img src="bukber.jpeg" alt="Kelas 2" />
+            <img src="graduate.jpeg" alt="Kelas 3" />
             <div class="slider-dots"></div>
           </div>
           <div class="body">
             <h3>Kebersamaan di Kelas</h3>
             <p>Foto random, jajan, atau belajar bareng sebelum ujian.</p>
             <span class="tag">Kelas</span>
+            <p class="click-hint">Klik untuk lihat semua foto →</p>
           </div>
         </article>
 
@@ -487,6 +595,7 @@
             <h3>Hari Perpisahan</h3>
             <p>Wisuda, baju angkatan, dan air mata bahagia.</p>
             <span class="tag">Wisuda</span>
+            <p class="click-hint">Klik untuk lihat semua foto →</p>
           </div>
         </article>
 
@@ -494,13 +603,13 @@
           <div class="slider-auto" data-slider-auto data-interval="3000">
             <img src="pelantikan1.jpeg" alt="Pelantikan 1" class="active" />
             <img src="pelantikan2.jpeg" alt="Pelantikan 2" />
-            <img src="pelantikan3.jpeg" alt="Pelantikan 3" />
             <div class="slider-dots"></div>
           </div>
           <div class="body">
             <h3>Pelantikan Pengurus</h3>
             <p>Pelantikan pengurus kelas atau organisasi pondok modern al-hikmah.</p>
             <span class="tag">Organisasi</span>
+            <p class="click-hint">Klik untuk lihat semua foto →</p>
           </div>
         </article>
 
@@ -578,7 +687,7 @@
         <p>
           Punya foto atau cerita baru? Kirim ke pengurus angkatan atau grup WhatsApp.
         </p>
-        <a class="btn" href="https://chat.whatsapp.com/[LINK-GRUP-WA]" target="_blank" rel="noopener">
+        <a class="btn" href="" target="_blank" rel="noopener">
           Gabung Grup WhatsApp
         </a>
         <p style="margin-top: 1rem;">
@@ -589,11 +698,29 @@
     </div>
   </section>
 
+  <!-- Popup foto saat article diklik -->
+  <div class="modal-overlay" id="photoModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">Kenangan</h3>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-slider" id="modalSlider">
+        <button type="button" class="modal-nav prev" id="modalPrev">‹</button>
+        <button type="button" class="modal-nav next" id="modalNext">›</button>
+      </div>
+      <p class="modal-count" id="modalCount">1 / 1</p>
+      <div class="modal-thumbs" id="modalThumbs"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+    </div>
+  </div>
+
   <footer>
     © 2026 <strong>Angkatan Graduate 05</strong> — AL-HIKMAH PEMENANG
   </footer>
 
   <script>
+    /* Slider otomatis di card */
     document.querySelectorAll("[data-slider-auto]").forEach(function (slider) {
       var imgs = slider.querySelectorAll("img");
       var dotsWrap = slider.querySelector(".slider-dots");
@@ -623,6 +750,114 @@
         show((index + 1) % imgs.length);
       }, interval);
     });
+
+    /* Klik article → popup semua foto */
+    var modal = document.getElementById("photoModal");
+    var modalTitle = document.getElementById("modalTitle");
+    var modalSlider = document.getElementById("modalSlider");
+    var modalThumbs = document.getElementById("modalThumbs");
+    var modalDesc = document.getElementById("modalDesc");
+    var modalCount = document.getElementById("modalCount");
+    var modalClose = document.getElementById("modalClose");
+    var modalPrev = document.getElementById("modalPrev");
+    var modalNext = document.getElementById("modalNext");
+    var modalIndex = 0;
+    var modalImgs = [];
+
+    function getCardImages(card) {
+      var slider = card.querySelector(".slider-auto");
+      if (slider) {
+        return Array.from(slider.querySelectorAll("img")).map(function (img) {
+          return img.getAttribute("src");
+        });
+      }
+      var single = card.querySelector(":scope > img");
+      if (single) return [single.getAttribute("src")];
+      return [];
+    }
+
+    function showModalImage(i) {
+      var bigImgs = modalSlider.querySelectorAll("img");
+      var thumbs = modalThumbs.querySelectorAll("img");
+      bigImgs.forEach(function (img, n) {
+        img.classList.toggle("active", n === i);
+      });
+      thumbs.forEach(function (thumb, n) {
+        thumb.classList.toggle("active-thumb", n === i);
+      });
+      modalIndex = i;
+      modalCount.textContent = (i + 1) + " / " + modalImgs.length;
+      modalPrev.style.display = modalImgs.length > 1 ? "block" : "none";
+      modalNext.style.display = modalImgs.length > 1 ? "block" : "none";
+    }
+
+    function openModal(card) {
+      modalImgs = getCardImages(card);
+      if (modalImgs.length === 0) return;
+
+      var title = card.querySelector("h3");
+      var desc = card.querySelector(".body p");
+      modalTitle.textContent = title ? title.textContent : "Kenangan";
+      modalDesc.textContent = desc ? desc.textContent : "";
+
+      modalSlider.querySelectorAll("img").forEach(function (el) { el.remove(); });
+      modalThumbs.innerHTML = "";
+
+      modalImgs.forEach(function (src, i) {
+        var big = document.createElement("img");
+        big.src = src;
+        big.alt = modalTitle.textContent + " " + (i + 1);
+        if (i === 0) big.classList.add("active");
+        modalSlider.insertBefore(big, modalPrev);
+
+        var thumb = document.createElement("img");
+        thumb.src = src;
+        thumb.alt = "";
+        if (i === 0) thumb.classList.add("active-thumb");
+        thumb.addEventListener("click", function () {
+          showModalImage(i);
+        });
+        modalThumbs.appendChild(thumb);
+      });
+
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      showModalImage(0);
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".memory-card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        openModal(card);
+      });
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.querySelector(".modal-box").addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+
+    modalPrev.addEventListener("click", function () {
+      showModalImage((modalIndex - 1 + modalImgs.length) % modalImgs.length);
+    });
+    modalNext.addEventListener("click", function () {
+      showModalImage((modalIndex + 1) % modalImgs.length);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!modal.classList.contains("open")) return;
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") modalPrev.click();
+      if (e.key === "ArrowRight") modalNext.click();
+    });
   </script>
+
 </body>
 </html>
