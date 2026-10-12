@@ -1,0 +1,1010 @@
+:root {
+  --biru-royal: #0047ff;
+  --biru-royal-gelap: #0036c4;
+  --biru-navy: #000040;
+  --biru-muda: #e8f0ff;
+  --emas: #c9a227;
+  --putih: #ffffff;
+  --krem: #f5f8ff;
+  --teks: #0a1628;
+  --abu: #5a6b8a;
+  --bayang: 0 8px 28px rgba(0, 71, 255, 0.18);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", system-ui, sans-serif;
+  background: var(--krem);
+  color: var(--teks);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--biru-royal);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  color: var(--biru-royal-gelap);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245, 248, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--biru-muda);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--biru-navy);
+}
+
+.logo-img {
+  width: auto;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 71, 255, 0.15));
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.logo-text strong {
+  color: var(--biru-royal);
+}
+
+nav {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  /* TAMBAHAN DARK MODE: agar tombol sejajar rapi dengan link nav */
+  align-items: center;
+}
+
+nav a {
+  font-size: 0.88rem;
+  color: var(--teks);
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--biru-royal);
+}
+
+.hero {
+  text-align: center;
+  padding: 3.5rem 1.25rem 3.5rem;
+  background: linear-gradient(180deg, var(--biru-muda) 0%, var(--krem) 50%, var(--putih) 100%);
+}
+
+.hero-logo-wrap {
+  margin: 0 auto 1.25rem;
+  width: min(220px, 60vw);
+}
+
+.hero-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 28px rgba(0, 71, 255, 0.35));
+}
+
+.hero .badge {
+  display: inline-block;
+  background: var(--biru-navy);
+  color: var(--putih);
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  border: 2px solid var(--emas);
+}
+
+.hero .tahun {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--biru-royal);
+  text-shadow: 3px 3px 0 var(--emas);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  font-family: "Playfair Display", serif;
+}
+
+.hero h1 {
+  font-size: clamp(1.85rem, 5vw, 2.6rem);
+  color: var(--biru-navy);
+  margin-bottom: 0.5rem;
+}
+
+.hero .sub {
+  font-size: 1.05rem;
+  color: var(--abu);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 3.5rem 0;
+}
+
+section.alt {
+  background: var(--putih);
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-head h2 {
+  font-size: 1.75rem;
+  color: var(--biru-navy);
+  margin-bottom: 0.35rem;
+}
+
+.section-head p {
+  color: var(--abu);
+  font-size: 0.95rem;
+}
+
+.intro {
+  background: var(--putih);
+  padding: 1.75rem;
+  border-radius: var(--radius);
+  box-shadow: var(--bayang);
+  border-left: 5px solid var(--biru-royal);
+}
+
+.intro p {
+  margin-bottom: 0.75rem;
+  color: var(--abu);
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+.intro strong {
+  color: var(--biru-navy);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.memory-card {
+  background: var(--putih);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--bayang);
+  border: 1px solid var(--biru-muda);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.memory-card:hover {
+  transform: translateY(-5px);
+}
+
+.memory-card>img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--biru-muda);
+}
+
+.slider-auto {
+  position: relative;
+  height: 200px;
+  background: var(--biru-navy);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.slider-auto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.slider-auto img.active {
+  opacity: 1;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.slider-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.3s;
+}
+
+.slider-dots span.active {
+  background: var(--emas);
+  transform: scale(1.15);
+}
+
+.memory-card .body {
+  padding: 1rem 1.1rem;
+}
+
+.memory-card h3 {
+  font-size: 1.05rem;
+  color: var(--biru-navy);
+  margin-bottom: 0.35rem;
+}
+
+.memory-card p {
+  font-size: 0.9rem;
+  color: var(--abu);
+}
+
+.memory-card .tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  background: var(--biru-muda);
+  color: var(--biru-navy);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.click-hint {
+  font-size: 0.78rem;
+  color: var(--biru-royal);
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+/* Modal popup foto - Sleek distraction-free Lightbox */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.281);
+  /* Sangat gelap, nyaris hitam pekat */
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-box {
+  background: transparent;
+  /* Tidak ada background putih */
+  border-radius: 0;
+  max-width: 900px;
+  width: 100%;
+  max-height: 96vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: none;
+  /* Tidak ada bayangan kotak */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  background: transparent;
+  /* Transparan */
+  color: var(--putih);
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  color: var(--putih);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--putih);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  z-index: 10000;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.modal-slider {
+  position: relative;
+  height: min(550px, 62vh);
+  background: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-slider img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.modal-slider img.active {
+  opacity: 1;
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--putih);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.modal-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.modal-nav.prev {
+  left: 10px;
+}
+
+.modal-nav.next {
+  right: 10px;
+}
+
+.modal-thumbs {
+  display: flex;
+  gap: 10px;
+  padding: 0.75rem 0.5rem;
+  overflow-x: auto;
+  background: transparent;
+  /* Hilangkan warna krem/abu kaku */
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Kustom scrollbar untuk navigasi jempolan */
+.modal-thumbs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.modal-thumbs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-thumbs::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.modal-thumbs img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.modal-thumbs img:hover {
+  opacity: 0.8;
+}
+
+.modal-thumbs img.active-thumb {
+  border-color: var(--emas);
+  /* Bingkai emas mewah */
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.modal-desc {
+  padding: 0.5rem 1rem 0.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  text-align: center;
+  max-width: 600px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.modal-count {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 0.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(var(--biru-royal), var(--emas));
+  border-radius: 4px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.75rem;
+  padding-left: 1.25rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.7rem;
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  background: var(--biru-royal);
+  border: 3px solid var(--putih);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--biru-royal);
+}
+
+.timeline-item .year {
+  font-weight: 700;
+  color: var(--biru-royal);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-item h3 {
+  font-size: 1.1rem;
+  color: var(--biru-navy);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item p {
+  color: var(--abu);
+  font-size: 0.95rem;
+}
+
+.list-memories {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.list-memories li {
+  background: var(--putih);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  border: 1px solid var(--biru-muda);
+}
+
+.list-memories .icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.quotes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.quote-box {
+  background: linear-gradient(135deg, var(--biru-navy) 0%, var(--biru-royal) 100%);
+  color: var(--putih);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  font-style: italic;
+  border-left: 4px solid var(--emas);
+}
+
+.quote-box.alt {
+  background: linear-gradient(135deg, var(--biru-royal) 0%, #4d8fff 100%);
+}
+
+.quote-box cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.9rem;
+  opacity: 0.92;
+}
+
+.contact-box {
+  text-align: center;
+  background: var(--putih);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--bayang);
+  border: 2px solid var(--biru-muda);
+}
+
+.contact-box p {
+  color: var(--abu);
+  margin-bottom: 1rem;
+}
+
+.contact-logo {
+  width: 100px;
+  margin: 0 auto 1rem;
+  opacity: 0.95;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--biru-royal);
+  color: var(--putih);
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 71, 255, 0.35);
+}
+
+.btn:hover {
+  background: var(--biru-royal-gelap);
+  color: var(--putih);
+  text-decoration: none;
+}
+
+.btn-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 4px 16px rgba(220, 39, 67, 0.35);
+  color: var(--putih) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+  opacity: 0.95;
+}
+
+/* Instagram Card Styling */
+.instagram-card {
+  max-width: 460px;
+  margin: 0 auto;
+  background: var(--putih);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  border: 2px solid var(--biru-muda);
+  box-shadow: var(--bayang);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.instagram-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.instagram-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 71, 255, 0.22);
+}
+
+.instagram-avatar-container {
+  position: relative;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.instagram-avatar-ring {
+  width: 108px;
+  height: 108px;
+  border-radius: 20px;
+  padding: 4px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: contain;
+  background: var(--putih);
+  padding: 6px;
+}
+
+.instagram-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: #0095f6;
+  color: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--putih);
+  font-size: 10px;
+}
+
+.instagram-handle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--biru-navy);
+  margin-bottom: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.instagram-tagline {
+  font-size: 0.8rem;
+  color: var(--emas);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.instagram-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  margin-bottom: 1.25rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--biru-muda);
+  border-bottom: 1px solid var(--biru-muda);
+  width: 100%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-val {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--biru-navy);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--abu);
+}
+
+.instagram-bio {
+  font-size: 0.95rem;
+  color: var(--abu);
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.btn-follow {
+  width: 100%;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: var(--putih) !important;
+  padding: 0.85rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(220, 39, 67, 0.35);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-follow:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 39, 67, 0.5);
+}
+
+.btn-follow svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-follow:hover svg {
+  transform: scale(1.15) rotate(8deg);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  background: var(--biru-navy);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+footer strong {
+  color: var(--emas);
+}
+
+/* ============================================================
+   TAMBAHAN DARK MODE — MULAI DARI SINI
+   Semua kode di atas tidak ada yang diubah (kecuali 1 baris
+   align-items pada "nav" agar tombol sejajar).
+   Blok di bawah hanya AKTIF kalau tag <html> punya
+   atribut data-theme="dark" (diatur oleh tombol di index.html).
+   ============================================================ */
+
+/* ---------- 1. Tampilan tombol ganti mode ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--biru-navy);
+  background: var(--biru-muda);
+  border: 1px solid rgba(0, 71, 255, 0.18);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  background: var(--biru-royal);
+  color: var(--putih);
+}
+
+.theme-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* ---------- 2. Transisi halus saat pindah mode ---------- */
+body,
+header,
+.hero,
+section.alt,
+.intro,
+.memory-card,
+.list-memories li,
+.instagram-card,
+footer {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ---------- 3. Palet warna mode gelap ----------
+   Warna dibuat abu-biru lembut (bukan hitam pekat)
+   supaya nuansa biru–emas aslinya tetap terasa.
+   Cukup ubah angka di sini kalau mau lebih terang/gelap. */
+:root[data-theme="dark"] {
+  --biru-royal: #5c8aff;          /* biru dibikin lebih terang agar terbaca */
+  --biru-royal-gelap: #82a6ff;
+  --biru-muda: #273356;           /* dipakai untuk garis/border & badge */
+  --krem: #171f36;                /* warna latar utama halaman */
+  --emas: #e3bd4d;                /* emas sedikit lebih cerah */
+  --teks: #e9eefc;
+  --abu: #a3b3d2;                 /* warna paragraf */
+  --bayang: 0 8px 26px rgba(0, 0, 0, 0.42);
+
+  /* variabel baru khusus mode gelap */
+  --permukaan: #222c49;           /* latar kartu */
+  --permukaan-2: #1c2440;         /* latar section .alt */
+  --judul: #cfe0ff;               /* warna semua judul */
+}
+
+/* ---------- 4. Latar halaman & header ---------- */
+:root[data-theme="dark"] body {
+  background: var(--krem);
+  color: var(--teks);
+}
+
+:root[data-theme="dark"] header {
+  background: rgba(23, 31, 54, 0.94);
+}
+
+:root[data-theme="dark"] .hero {
+  background: linear-gradient(180deg, #223055 0%, var(--krem) 55%, #141b30 100%);
+}
+
+:root[data-theme="dark"] section.alt {
+  background: var(--permukaan-2);
+}
+
+/* ---------- 5. Semua kartu / kotak putih jadi biru gelap ---------- */
+:root[data-theme="dark"] .intro,
+:root[data-theme="dark"] .memory-card,
+:root[data-theme="dark"] .list-memories li,
+:root[data-theme="dark"] .instagram-card,
+:root[data-theme="dark"] .contact-box {
+  background: var(--permukaan);
+  border-color: var(--biru-muda);
+}
+
+:root[data-theme="dark"] .list-memories li {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- 6. Judul & teks tebal (aslinya navy, jadi tak terbaca) ---------- */
+:root[data-theme="dark"] .logo-wrap,
+:root[data-theme="dark"] .hero h1,
+:root[data-theme="dark"] .section-head h2,
+:root[data-theme="dark"] .intro strong,
+:root[data-theme="dark"] .memory-card h3,
+:root[data-theme="dark"] .memory-card .tag,
+:root[data-theme="dark"] .timeline-item h3,
+:root[data-theme="dark"] .instagram-handle,
+:root[data-theme="dark"] .stat-val {
+  color: var(--judul);
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  color: var(--judul);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------- 7. Badge hero, kutipan, titik timeline ---------- */
+:root[data-theme="dark"] .hero .badge {
+  background: #2a3760;
+  color: #ffffff;
+}
+
+:root[data-theme="dark"] .quote-box {
+  background: linear-gradient(135deg, #253256 0%, #3d67d6 100%);
+}
+
+:root[data-theme="dark"] .quote-box.alt {
+  background: linear-gradient(135deg, #3d67d6 0%, #6d9aff 100%);
+}
+
+:root[data-theme="dark"] .timeline-item::before {
+  /* lingkaran timeline: cincin putih diganti warna latar */
+  border-color: var(--permukaan-2);
+}
+
+/* ---------- 8. Popup foto & footer ---------- */
+:root[data-theme="dark"] .modal-overlay {
+  background: rgba(8, 11, 20, 0.55);
+}
+
+:root[data-theme="dark"] footer {
+  background: #121929;
+}
+
+/* ============================================================
+   TAMBAHAN DARK MODE — SELESAI
+   ============================================================ */
